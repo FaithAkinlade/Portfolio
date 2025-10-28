@@ -1,0 +1,134 @@
+# Author: Faith Akinlade
+# Date: 09/30/2025
+# Description: This program offers the user a choice of framing and artwork to print and outputs art depending on their
+# choices.
+def intro():
+    """
+    This function welcomes the user to the program, displays their options and gives output based on the user input.
+    """
+    print("Welcome to the ASCII Art printer!")
+    print("Here is our menu: ")
+    print("1. The S.S. Satisfaction (No meals included)")
+    print("2. The Sleeping Cat")
+    print("3. The Bunny")
+    print("4. The Baby Elephant")
+    choice = int(input("Please select a painting to print(1-4): "))
+    border = input("What border would you like around your painting? ")
+    return choice, border
+
+def printHeaderFooter(border,size):
+    """
+    This function outputs a horizontal border based on the user's chosen size and symbol.
+    """
+    print(border * (size + 2))
+
+def sleepingCat(border):
+    """
+    This function outputs the sleeping cat painting with a frame of the user's choosing.
+    :param border: Chosen symbol to frame the painting with.
+    :type border: String
+    """
+    # Reading file and storing image as a list of strings in a variable.
+    with open("sleepingCat.txt", 'r') as f:
+        image = f.readlines()
+    width = max(len(line) for line in image)
+
+    # Displaying the framed image.
+    printHeaderFooter(border, width)
+    for line in image:
+        print(f"{border}{line.rstrip().ljust(width)}{border}")
+    printHeaderFooter(border, width)
+
+def sailingShip(border):
+    """
+    This function outputs the sailing ship painting with a frame of the user's choosing.
+    :param border: Chosen symbol to frame the painting with.
+    :type border: String
+    """
+    # Reading file and storing image as a list of strings in a variable.
+    with open("sailingShip.txt", 'r') as f:
+        image = f.readlines()
+    width = max(len(line) for line in image)
+
+    # Displaying the framed image.
+    printHeaderFooter(border, width)
+    for line in image:
+        print(f"{border}{line.rstrip().ljust(width)}{border}")
+    printHeaderFooter(border, width)
+
+def bunny(border):
+    """
+    This function outputs the bunny painting with a frame of the user's choosing.
+    :param border: Chosen symbol to frame the painting with.
+    :type border: String
+    """
+    # Reading file and storing image as a list of strings in a variable.
+    with open("bunny.txt", 'r') as f:
+        image = f.readlines()
+    width = max(len(line) for line in image)
+
+    # Displaying the framed image.
+    printHeaderFooter(border, width)
+    for line in image:
+        print(f"{border}{line.rstrip().ljust(width)}{border}")
+    printHeaderFooter(border, width)
+
+def babyElephant(border):
+    """
+    This function outputs the baby elephant painting with a frame of the user's choosing.
+    :param border: Chosen symbol to frame the painting with.
+    :type border: String
+    """
+    # Reading file and storing image as a list of strings in a variable.
+    with open("babyElephant.txt", 'r') as f:
+        image = f.readlines()
+    width = max(len(line) for line in image)
+
+    # Displaying the framed image.
+    printHeaderFooter(border, width)
+    for line in image:
+        print(f"{border}{line.rstrip().ljust(width)}{border}")
+    printHeaderFooter(border, width)
+
+def blank(border):
+    """
+    This function outputs a blank painting with a frame of the user's choosing.
+    :param border: Chosen symbol to frame the painting with.
+    :type border: String
+    """
+    # Creating string of 5 spaces to use as blank image.
+    spaceString = "".ljust(5)
+    width = 5
+
+    # Displaying the framed image.
+    printHeaderFooter(border, width)
+    for i in range(5):
+        print(f"{border}{spaceString}{border}")
+    printHeaderFooter(border, width)
+
+def main():
+    """
+    This function provides the main functionality of the program; welcoming the user, presenting their options and
+    giving output based on their choices.
+    """
+    # Initiating program, displaying options and receiving input.
+    user_choice, user_border = intro()
+
+    # Determining output of user input.
+    if user_choice == 1:
+        sailingShip(user_border)
+    elif user_choice == 2:
+        sleepingCat(user_border)
+    elif user_choice == 3:
+        bunny(user_border)
+    elif user_choice == 4:
+        babyElephant(user_border)
+    else:
+        blank(user_border)
+        print("We do not seem to have that on the menu.")
+        exit(-1)
+
+    print("We hope that you enjoy your art! Please come back soon!")
+
+if __name__ == "__main__":
+    main()
