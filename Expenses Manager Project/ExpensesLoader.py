@@ -41,7 +41,6 @@ class ExpensesLoader(object):
         """
 
         # TODO insert your code
-        # Creating empty lists to store values for the expense_type and amount
 
         # Opening file and extracting contents as a list of lines.
         file_list = open(file).readlines()
