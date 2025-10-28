@@ -1,17 +1,10 @@
 """
-This Python exam will involve implementing a system for managing expenses.  You will
-download the skeleton of the program, then implement the functions/methods.  The design of the
-program has been set up for you.
+This Python exam will involve implementing a system for managing expenses.
 
 In this system, users will be able to add and deduct expenses, update expenses, sort expenses,
 and export filtered expenses to a file.  The program will initially load a collection of expenses
 from 2 different .txt files (in the same format) and store them as Expense objects in a dictionary.
 
-NOTE(S):
-- It is important that you DO NOT edit the expenses.txt file or the expenses_2.txt file.  If you do,
-you could fail the automated testing.
-- DO NOT change the spacing or remove any blank lines.
-- DO NOT copy/paste the text from the expenses.txt file or the expenses_2.txt file into another file.
 """
 
 from ExpensesLoader import *
